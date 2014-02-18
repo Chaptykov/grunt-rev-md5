@@ -1,3 +1,5 @@
+Fork of [grunt-rev-md5](https://github.com/tactivos/grunt-rev-md5) with [this issue](https://github.com/tactivos/grunt-rev-md5/issues/16) fixed.
+
 [Grunt][grunt] plugin for automating resource versioning based on the MD5 hash of referenced files (works on CSS, HTML, SOYs)
 
 ## Getting Started
