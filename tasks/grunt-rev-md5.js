@@ -14,7 +14,7 @@ module.exports = function (grunt) {
 	
 
 	var reghtml = new RegExp(/<(?:img|link|source|script).*\b(?:href|src)\b=['"]([^ ]+)['"].*\/?>/ig);
-	var regcss = new RegExp(/url\(([^)]+)\)/ig);
+	var regcss = new RegExp(/url\(([^):#]+)\)/ig);
 
 	var writeln = grunt.log.writeln;
 	var ignorePath = null;
