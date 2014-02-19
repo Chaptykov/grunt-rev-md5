@@ -6,22 +6,20 @@
  */
 module.exports = function (grunt) {
 
-	var fs = require('fs');
-	var url = require('url');
-	var path = require('path');
-	var crypto = require('crypto');
+	var fs = require('fs'),
+		url = require('url'),
+		path = require('path'),
+		crypto = require('crypto'),
 
-	
+		reghtml = new RegExp(/<(?:img|link|source|script).*\b(?:href|src)\b=['"]([^ ]+)['"].*\/?>/ig),
+		regcss = new RegExp(/url\(([^):#?]+)\)/ig),
 
-	var reghtml = new RegExp(/<(?:img|link|source|script).*\b(?:href|src)\b=['"]([^ ]+)['"].*\/?>/ig);
-	var regcss = new RegExp(/url\(([^):#]+)\)/ig);
-
-	var writeln = grunt.log.writeln;
-	var ignorePath = null;
+		writeln = grunt.log.writeln,
+		ignorePath = null;
 
 	grunt.registerMultiTask('revmd5', 'Appends a cache busting ?v={MD5} hash to the file reference', function () {
 		var self = this;
-		
+
 		var options = this.options({
 			encoding: 'utf8',
 			safe: false
